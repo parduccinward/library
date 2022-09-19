@@ -1,0 +1,25 @@
+body {
+    margin-top: 100px !important;
+    height: 100vh;
+    background-color: #FDFFFC !important;
+}
+
+.first-line{
+    display: grid;
+    grid-template: 1fr 40px/ 5fr 1fr;
+    margin-bottom:20px;
+}
+
+.first-line button{
+    grid-area: 2/2/3/3;
+}
+
+.title{
+    text-align: center;
+    padding: 40px;
+    grid-area: 1/1/3/3;
+}
+
+tr{
+    text-align: center; 
+}

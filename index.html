@@ -5,10 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="script.js"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="first-line">
+            <h1 class="title">My Book Library</h1>
+            <button class="btn btn-success">Add new Book</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Number of pages</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>The Hobbit</td>
+                    <td>J.R.R. Tolkien</td>
+                    <td>295 pages</td>
+                    <td>not read yet</td>
+                    <td>
+                        <button class="btn btn-warning">Change Status</button>
+                        <button class="btn btn-danger">Remove Book</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Don Quixote</td>
+                    <td>Miguel de Cervantes</td>
+                    <td>1077 pages</td>
+                    <td>not read yet</td>
+                    <td>
+                        <button class="btn btn-warning">Change Status</button>
+                        <button class="btn btn-danger">Remove Book</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>The Great Gatsby</td>
+                    <td>F. Scott Fitzgerald</td>
+                    <td>208 pages</td>
+                    <td>not read yet</td>
+                    <td>
+                        <button class="btn btn-warning">Change Status</button>
+                        <button class="btn btn-danger">Remove Book</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
