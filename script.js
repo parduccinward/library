@@ -47,6 +47,29 @@ function addBooksToTable(){
     });
 }
 
+function createModal(){
+
+var modal = document.getElementById("myModal");
+
+var btn = document.getElementById("addBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+}
+
 Book.prototype.info = function (){
     console.log(`The ${this.title} by ${this.author}, ${this.pagesNumber}, ${this.readTheBook}`);
 }
@@ -59,6 +82,8 @@ addBookToLibrary(exampleBook1);
 addBookToLibrary(exampleBook2);
 addBookToLibrary(exampleBook3);
 
+addBooksToTable();
+createModal();
 
 
 
