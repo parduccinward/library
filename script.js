@@ -1,10 +1,24 @@
 let myLibrary = [];
 
+loadDumpData();
+addBooksToTable();
+createModal();
+
 function Book(title, author, pagesNumber, readTheBook){
     this.title = title;
     this.author = author;
     this.pagesNumber = pagesNumber;
     this.readTheBook = readTheBook;
+}
+
+function loadDumpData(){
+  let exampleBook1 = new Book("The Hobbit", "J.R.R. Tolkien", "295", "not read yet");
+  let exampleBook2 = new Book("Don Quixote", "Miguel de Cervantes", "1077", "not read yet");
+  let exampleBook3 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "208", "not read yet");
+
+  addBookToLibrary(exampleBook1);
+  addBookToLibrary(exampleBook2);
+  addBookToLibrary(exampleBook3);
 }
 
 function addBookToLibrary(book){
@@ -18,7 +32,7 @@ function displayBooks(){
 }
 
 function addBooksToTable(){
-    const table = document.querySelector(".table");
+    const tbody = document.querySelector(".tbody");
     myLibrary.forEach( (book, index) => {
         let tr = document.createElement("tr");
         let th = document.createElement("th");
@@ -43,7 +57,7 @@ function addBooksToTable(){
         deleteBtn.textContent = "Remove Book";
         td.append(changeStatusBtn,deleteBtn);
         tr.append(th,title,author,pagesNumber,readTheBook, td);
-        table.append(tr);
+        tbody.append(tr);
     });
 }
 
@@ -53,10 +67,22 @@ var modal = document.getElementById("myModal");
 
 var btn = document.getElementById("addBtn");
 
+var closeBtn = document.getElementById("closeBtn");
+
 var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
   modal.style.display = "block";
+}
+
+closeBtn.onclick = function() {
+  if(!(this.form.title.value==="" || this.form.author.value==="" || this.form.pagesNumber.value==="" || this.form.readTheBook.value==="")){
+    modal.style.display = "none";
+    addBookToArray(this.form);
+    emptyForm(this.form);
+  }else{
+    alert("Please fill all the fields");
+  }
 }
 
 span.onclick = function() {
@@ -70,20 +96,32 @@ window.onclick = function(event) {
 
 }
 
+function emptyTable(){
+  const tbody = document.querySelector(".tbody");
+  while (tbody.firstChild) {
+    tbody.removeChild(tbody.firstChild);
+  }
+}
+
+function emptyForm(form){
+  form.title.value = "";
+  form.author.value = "";
+  form.pagesNumber.value = "";
+  form.readTheBook.value = "";
+}
+
+function refreshTable(){
+  emptyTable();
+  addBooksToTable();
+}
+
+function addBookToArray(form) {
+  let newBook = new Book(form.title.value, form.author.value, form.pagesNumber.value, form.readTheBook.value);
+  addBookToLibrary(newBook);
+  refreshTable();
+}
+
 Book.prototype.info = function (){
     console.log(`The ${this.title} by ${this.author}, ${this.pagesNumber}, ${this.readTheBook}`);
 }
-
-var exampleBook1 = new Book("The Hobbit", "J.R.R. Tolkien", "295 pages", "not read yet");
-var exampleBook2 = new Book("Don Quixote", "Miguel de Cervantes", "1077 pages", "not read yet");
-var exampleBook3 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "208 pages", "not read yet");
-
-addBookToLibrary(exampleBook1);
-addBookToLibrary(exampleBook2);
-addBookToLibrary(exampleBook3);
-
-addBooksToTable();
-createModal();
-
-
 

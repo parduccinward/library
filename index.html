@@ -17,7 +17,7 @@
             <div id="myModal" class="modal">
                 <div class="modal-content">
                   <span class="close">&times;</span>
-                  <form>
+                  <form name="book-form">
                     <section>
                         <h2>Fill new book details</h1>
                             <p>
@@ -29,18 +29,18 @@
                                 <input type="text" id="author" name="author" required>
                             </p>
                             <p>
-                                <label for="pages_number">Number of pages:</label>
-                                <input type="text" id="pages_number" name="pages_number" required>
+                                <label for="pagesNumber">Number of pages:</label>
+                                <input type="text" id="pagesNumber" name="pagesNumber" required>
                             </p>
                             <p class="radio-section">
-                                <input type="radio" id="readed1" name="readed" value="readed">
-                                <label for="readed1">Readed</label><br>
-                                <input type="radio" id="readed2" name="readed" value="not readed yet">
-                                <label for="readed2">Not readed yet</label><br> 
+                                <input type="radio" id="readTheBook1" name="readTheBook" value="readed">
+                                <label for="readTheBook1">Readed</label><br>
+                                <input type="radio" id="readTheBook2" name="readTheBook" value="not readed yet">
+                                <label for="rreadTheBook2">Not readed yet</label><br> 
                             </p>
                     </section>
                     <section>
-                        <p><button class="btn btn-success"type="submit">Add Book</button></p>
+                        <p><button id="closeBtn"class="btn btn-success"TYPE="button" NAME="button" Value="Add Book">Add Book</button></p>
                     </section>
                 </form>
                 </div>
@@ -57,7 +57,7 @@
                     <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tbody">
                 
             </tbody>
         </table>
