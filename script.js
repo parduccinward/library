@@ -1,15 +1,17 @@
 let myLibrary = [];
 
-loadDumpData();
-addBooksToTable();
-createModal();
-
-function Book(title, author, pagesNumber, readTheBook){
+class Book{
+  constructor(title, author, pagesNumber, readTheBook){
     this.title = title;
     this.author = author;
     this.pagesNumber = pagesNumber;
     this.readTheBook = readTheBook;
+  }
 }
+
+loadDumpData();
+addBooksToTable();
+createModal();
 
 function loadDumpData(){
   let exampleBook1 = new Book("The Hobbit", "J.R.R. Tolkien", "295", "not read yet");
